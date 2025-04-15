@@ -1,0 +1,26 @@
+<odoo>
+     <record id="visa_documentation_list_tree" model="ir.ui.view">
+        <field name="name">Tour Visa_tree</field>
+        <field name="model">visa_documentation_list</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" class="fw-bold"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="visa_documentation_list_action" model="ir.actions.act_window">
+        <field name="name">Tour Visa</field>
+        <field name="res_model">visa_documentation_list</field>
+    </record>
+
+
+    <menuitem
+            id="visa_documentation_list_menu"
+            name="Visa Documentation List"
+            parent="conf_menu_sub"
+            action="visa_documentation_list_action"
+    />
+
+</odoo>

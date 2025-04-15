@@ -1,0 +1,26 @@
+<odoo>
+     <record id="room_type_tree" model="ir.ui.view">
+        <field name="name">Room Type Tree</field>
+        <field name="model">room_type</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" class="fw-bold"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="room_type_action" model="ir.actions.act_window">
+        <field name="name">Room Type</field>
+        <field name="res_model">room_type</field>
+    </record>
+
+
+    <menuitem
+            id="room_type_menu"
+            name="Room Type"
+            parent="conf_menu_sub"
+            action="room_type_action"
+    />
+
+</odoo>

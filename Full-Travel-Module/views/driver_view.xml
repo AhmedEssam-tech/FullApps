@@ -1,0 +1,26 @@
+<odoo>
+     <record id="view_res_partner_form_driver" model="ir.ui.view">
+        <field name="name">res.partner.form.driver</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+
+
+               <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Tour Management" invisible="is_driver==False"/>
+
+            </xpath>
+        </field>
+    </record>
+    <record id="action_driver_list" model="ir.actions.act_window">
+        <field name="name">Drivers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('is_driver','=',True)]</field>
+
+    </record>
+
+
+    <menuitem id="driver_menu" name="Drivers" parent="contact_menu" action="action_driver_list"/>
+</odoo>

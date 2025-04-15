@@ -1,0 +1,26 @@
+<odoo>
+     <record id="place_tree" model="ir.ui.view">
+        <field name="name">place_tree</field>
+        <field name="model">place</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" class="fw-bold"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="place_action" model="ir.actions.act_window">
+        <field name="name">Place</field>
+        <field name="res_model">place</field>
+    </record>
+
+
+    <menuitem
+            id="place_menu"
+            name="Place"
+            parent="conf_menu_sub"
+            action="place_action"
+    />
+
+</odoo>

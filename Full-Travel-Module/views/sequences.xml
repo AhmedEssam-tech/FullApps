@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <record id="sequence_inquiry" model="ir.sequence">
+            <field name="name">tour inquiry seq.</field>
+           <field name="code">tour_inquiry_seq</field>
+           <field name="prefix">INQ/</field>
+           <field name="padding">4</field>
+        </record>
+
+        <record id="sequence_itinerary" model="ir.sequence">
+            <field name="name">tour itinerary seq.</field>
+           <field name="code">tour_itinerary_seq</field>
+           <field name="prefix">TIN/</field>
+           <field name="padding">4</field>
+        </record>
+
+
+        <record id="sequence_code_tour_program" model="ir.sequence">
+            <field name="name">tour program code</field>
+           <field name="code">tour_program_code</field>
+           <field name="prefix">0</field>
+           <field name="padding">4</field>
+        </record>
+
+
+        <record id="sequence_code_booking_inf" model="ir.sequence">
+            <field name="name">Booking Info </field>
+           <field name="code">booking_info</field>
+           <field name="prefix">TBI/</field>
+           <field name="padding">4</field>
+        </record>
+
+
+        <record id="sequence_tour_booking" model="ir.sequence">
+            <field name="name">tour booking seq.</field>
+           <field name="code">tour_booking_seq</field>
+           <field name="prefix">TRB/</field>
+           <field name="padding">4</field>
+        </record>
+
+
+        <record id="sequence_passport_doc" model="ir.sequence">
+            <field name="name">passport documentation seq.</field>
+            <field name="code">passport_documentation_seq</field>
+            <field name="prefix">PAS/</field>
+            <field name="padding">4</field>
+        </record>
+
+        <record id="sequence_agent_commission" model="ir.sequence">
+            <field name="name">agent commission seq.</field>
+            <field name="code">agent_commission_seq</field>
+            <field name="prefix">AC/</field>
+            <field name="padding">4</field>
+        </record>
+
+        <record id="sequence_tour_visa" model="ir.sequence">
+            <field name="name">tour visa seq.</field>
+            <field name="code">tour_visa_seq</field>
+            <field name="prefix">TVB/</field>
+            <field name="padding">4</field>
+        </record>
+
+    </data>
+</odoo>

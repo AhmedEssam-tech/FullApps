@@ -1,0 +1,59 @@
+<odoo>
+
+    <record id="agent_commission_tree" model="ir.ui.view">
+        <field name="name">Agent Commission</field>
+        <field name="model">agent_commission</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="agent"/>
+                <field name="price_list"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="agent_commission_form" model="ir.ui.view">
+        <field name="name">Agent Commission</field>
+        <field name="model">agent_commission</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="agent" domain="[('is_agent','=',True)]"/>
+                            <field name="price_list"/>
+                        </group>
+                        <field name="commission_ids">
+                            <tree  editable="bottom">
+                                <field name="customer"/>
+                                <field name="booking_info_id" />
+                                <field name="commission" />
+                                <field name="cost" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="agent_commission1_action" model="ir.actions.act_window">
+        <field name="name">Agent Commission</field>
+        <field name="res_model">agent_commission</field>
+    </record>
+
+
+    <menuitem
+            id="agent_commission_menu"
+            name="Agent Commission"
+            parent="Tour_menu_sub"
+            action="agent_commission1_action"
+    />
+
+</odoo>

@@ -1,0 +1,29 @@
+<odoo>
+     <record id="view_res_partner_form_other_contact" model="ir.ui.view">
+        <field name="name">res.partner.form.other.contact</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+
+
+
+
+             <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Tour Management" invisible="is_other_contact==False"/>
+             </xpath>
+
+
+        </field>
+    </record>
+    <record id="action_other_contact_list" model="ir.actions.act_window">
+        <field name="name">Other Contacts</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('is_other_contact','=',True)]</field>
+
+    </record>
+
+
+    <menuitem id="other_contact_menu" name="Other Contacts" parent="contact_menu" action="action_other_contact_list"/>
+</odoo>

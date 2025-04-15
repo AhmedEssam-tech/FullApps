@@ -1,0 +1,53 @@
+<odoo>
+     <record id="day_sheet_tree" model="ir.ui.view">
+        <field name="name">day sheet</field>
+        <field name="model">day_sheet</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" class="fw-bold"/>
+                <field name="service_date" />
+                <field name="extra_service_date" />
+                <field name="booking_name" />
+                <field name="booking_date" />
+                <field name="agent" />
+                <field name="driver" />
+                <field name="guide" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="day_sheet_form" model="ir.ui.view">
+        <field name="name">day sheet</field>
+        <field name="model">day_sheet</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" class="fw-bold"/>
+                        <field name="service_date" />
+                        <field name="extra_service_date" />
+                        <field name="booking_name" />
+                        <field name="booking_date" />
+                        <field name="agent" domain="[('is_agent','=',True)]"/>
+                        <field name="driver" domain="[('is_driver','=',True)]"/>
+                        <field name="guide" domain="[('is_guide','=',True)]"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="day_sheet_action" model="ir.actions.act_window">
+        <field name="name">Day Sheet</field>
+        <field name="res_model">day_sheet</field>
+    </record>
+
+
+    <menuitem
+            id="day_sheet_menu"
+            name="Day Sheet"
+            parent="Tour_operation_menu_sub"
+            action="day_sheet_action"
+    />
+
+</odoo>

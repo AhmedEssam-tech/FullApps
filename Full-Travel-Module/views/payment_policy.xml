@@ -1,0 +1,26 @@
+<odoo>
+     <record id="payment_policy_tree" model="ir.ui.view">
+        <field name="name">payment_policy_tree</field>
+        <field name="model">payment_policy</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" class="fw-bold"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="payment_policy_action" model="ir.actions.act_window">
+        <field name="name">payment policy</field>
+        <field name="res_model">payment_policy</field>
+    </record>
+
+
+    <menuitem
+            id="payment_policy_menu"
+            name="Payment Policy"
+            parent="conf_menu_sub"
+            action="payment_policy_action"
+    />
+
+</odoo>

@@ -1,0 +1,67 @@
+<odoo>
+     <record id="extra_service_tree" model="ir.ui.view">
+        <field name="name">Extra Service</field>
+        <field name="model">extra_service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="datetime" />
+                <field name="name"/>
+                <field name="number_of_pax" />
+                <field name="passenger_names" />
+                <field name="agent"/>
+                <field name="sub_agent" />
+                <field name="tour_consultant" />
+                <field name="from_tour" />
+                <field name="driver" />
+                <field name="guide" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="extra_service_form" model="ir.ui.view">
+        <field name="name">Extra Service </field>
+        <field name="model">extra_service</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                       <field name="datetime" />
+                       <field name="number_of_pax" />
+                       <field name="passenger_names" widget="many2many_tags" />
+                       <field name="agent" domain="[('is_agent','=',True)]"/>
+                       <field name="sub_agent"  domain="[('is_sub_agent','=',True)]"/>
+                       <field name="name" />
+                       <field name="from_tour" />
+                       <field name="driver" domain="[('is_driver','=',True)]"/>
+                       <field name="guide" domain="[('is_guide','=',True)]"/>
+                       <field name="tour_consultant" domain="[('is_tour_consultant','=',True)]"/>
+                       <field name="service_remarks" />
+                       <field name="currency" />
+                       <field name="cost_ids">
+                           <tree editable="bottom">
+                               <field name="name"/>
+                               <field name="number_of_pax"/>
+                               <field name="cost"/>
+                           </tree>
+                       </field>
+                       <field name="tour_reservation" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="extra_service_action" model="ir.actions.act_window">
+        <field name="name">Extra Service</field>
+        <field name="res_model">extra_service</field>
+    </record>
+
+
+    <menuitem
+            id="extra_service_menu"
+            name="Extra Service"
+            parent="Tour_menu_sub"
+            action="extra_service_action"
+    />
+
+</odoo>

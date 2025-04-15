@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<record id="view_tour_management_form" model="ir.ui.view">
+    <field name="name">tour.management.form</field>
+    <field name="model">tour.management</field>
+    <field name="arch" type="xml">
+        <form string="Tour Management">
+            <sheet>
+                <group>
+                <group>
+                    <field name="tour_consultant" domain="[('is_tour_consultant','=',True)]"/>
+                    <field name="service"/>
+                    <field name="invoice_number"/>
+                </group>
+                <group>
+                     <field name="guide" domain="[('is_guide', '=', True), ]"/>
+                    <field name="driver" domain="[('is_driver', '=', True), ]"/>
+
+                </group>
+                <group>
+                      <field name="entrance_fee_given"/>
+                    <field name="entrance_fee_used"/>
+                    <field name="entrance_fee_to_return" readonly="1"/>
+                </group>
+                <group>
+                    <field name="invoice_amount"/>
+                    <field name="extra_paid"/>
+                    <field name="balance_amount"/>
+                    <field name="transfer_tour_payment"/>
+                </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+<record id="action_tour_management" model="ir.actions.act_window">
+    <field name="name">Tour Management</field>
+    <field name="res_model">tour.management</field>
+    <field name="view_mode">form,tree</field>
+</record>
+
+
+    </data>
+</odoo>

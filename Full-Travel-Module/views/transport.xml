@@ -1,0 +1,26 @@
+<odoo>
+     <record id="transport_tree" model="ir.ui.view">
+        <field name="name">transport_tree</field>
+        <field name="model">transport</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" class="fw-bold"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="transport_action" model="ir.actions.act_window">
+        <field name="name">transport</field>
+        <field name="res_model">transport</field>
+    </record>
+
+
+    <menuitem
+            id="transport_menu"
+            name="Transport"
+            parent="conf_menu_sub"
+            action="transport_action"
+    />
+
+</odoo>

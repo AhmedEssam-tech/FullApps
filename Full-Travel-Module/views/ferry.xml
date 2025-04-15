@@ -1,0 +1,60 @@
+<odoo>
+     <record id="ferry_tree" model="ir.ui.view">
+        <field name="name">Ferry</field>
+        <field name="model">ferry</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" class="fw-bold"/>
+                <field name="date_in" />
+                <field name="date_out" />
+                <field name="from_tour" />
+                <field name="to_tour"/>
+                <field name="booked_by" />
+                <field name="other_detail" />
+                <field name="tour_reservation" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="ferry_form" model="ir.ui.view">
+        <field name="name">Ferry</field>
+        <field name="model">ferry</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                       <field name="name" />
+                       <field name="date_in" />
+                       <field name="date_out" />
+                       <field name="from_tour" />
+                       <field name="to_tour" />
+                       <field name="booked_by" />
+                       <field name="other_detail" />
+                       <field name="tour_reservation" />
+                       <field name="cost_ids">
+                           <tree editable="bottom">
+                               <field name="name"/>
+                               <field name="number_of_pax"/>
+                               <field name="cost"/>
+                           </tree>
+                       </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ferry_action" model="ir.actions.act_window">
+        <field name="name">Ferry</field>
+        <field name="res_model">ferry</field>
+    </record>
+
+
+    <menuitem
+            id="ferry_menu"
+            name="Ferry"
+            parent="Tour_menu_sub"
+            action="ferry_action"
+    />
+
+</odoo>

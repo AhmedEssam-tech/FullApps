@@ -1,0 +1,60 @@
+<odoo>
+     <record id="service_tree" model="ir.ui.view">
+        <field name="name">service</field>
+        <field name="model">service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" class="fw-bold"/>
+                <field name="datetime" />
+                <field name="number_of_pax" />
+                <field name="passenger_names" />
+                <field name="from_tour"/>
+                <field name="to_tour" />
+                <field name="cost_ids"  />
+            </tree>
+        </field>
+    </record>
+
+    <record id="service_form" model="ir.ui.view">
+        <field name="name">service </field>
+        <field name="model">service</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                       <field name="name" />
+                       <field name="datetime" />
+                       <field name="number_of_pax" />
+                       <field name="passenger_names" widget="many2many_tags"/>
+                       <field name="from_tour" />
+                       <field name="driver" domain="[('is_driver','=',True)]" />
+                       <field name="guide" domain="[('is_guide','=',True)]"/>
+                       <field name="service_remarks" />
+                       <field name="cost_ids">
+                           <tree editable="bottom">
+                               <field name="name"/>
+                               <field name="number_of_pax"/>
+                               <field name="cost"/>
+                           </tree>
+                       </field>
+                       <field name="tour_reservation" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="service_action" model="ir.actions.act_window">
+        <field name="name">service</field>
+        <field name="res_model">service</field>
+    </record>
+
+
+    <menuitem
+            id="service_menu"
+            name="Service"
+            parent="Tour_menu_sub"
+            action="service_action"
+    />
+
+</odoo>

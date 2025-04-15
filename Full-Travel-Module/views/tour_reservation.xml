@@ -1,0 +1,104 @@
+<odoo>
+     <record id="tour_tree" model="ir.ui.view">
+        <field name="name">tour_tree</field>
+        <field name="model">tour</field>
+        <field name="arch" type="xml">
+            <tree class="o_goal_list">
+                <field name="name" class="fw-bold"/>
+                <field name="tour_type" />
+                <field name="tour_code" />
+                <field name="date_of_publish" />
+                <field name="tour_days"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tour_form" model="ir.ui.view">
+        <field name="name">tour_form</field>
+        <field name="model">tour</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" type="object" class="btn-success" string="Confirm" invisible="status =='confirmed'"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="tour_type"/>
+                            <field name="tour_days"/>
+                        </group>
+                        <group>
+                            <field name="tour_code"/>
+                            <field name="date_of_publish"/>
+                        </group>
+                    </group>
+                    <group string="Introduction ">
+                        <field name="tour_plans"/>
+                    </group>
+                        <notebook>
+                            <page>
+                                <field name="travel_info_ids">
+                                    <tree editable="bottom">
+                                        <field name="from_tour"/>
+                                        <field name="to_tour"/>
+                                        <field name="transport_type"/>
+                                        <field name="travel_class"/>
+                                        <field name="distance"/>
+                                        <field name="duration_time"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    <group string="Other Information "/>
+                        <notebook>
+                            <page name="Tour Details">
+                                <field name="tour_details_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="start_date"/>
+                                        <field name="last_date"/>
+                                        <field name="payment_date"/>
+                                        <field name="total_seat"/>
+                                        <field name="available_seat"/>
+                                        <field name="status"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="Services">
+
+                            </page>
+                            <page name="Accommodation">
+
+                            </page>
+                            <page name="flight">
+
+                            </page>
+                            <page name="services">
+
+                            </page>
+                        </notebook>
+
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tour_action" model="ir.actions.act_window">
+        <field name="name">Tour</field>
+        <field name="res_model">tour</field>
+    </record>
+
+
+    <menuitem
+            id="Tour_menu"
+            name="Tour"
+            parent="Tour_menu_sub"
+            action="tour_action"
+    />
+
+</odoo>

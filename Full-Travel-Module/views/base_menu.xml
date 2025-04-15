@@ -1,0 +1,21 @@
+<odoo>
+
+    <menuitem id="menu_root" name="Tour management"/>
+
+    <menuitem id="Tour_menu_sub" name="Tour Reservation" parent="menu_root"/>
+    <menuitem id="Tour_operation_menu_sub" name="Tour Operation" parent="menu_root"/>
+    <menuitem id="acc_menu_sub" name="Tour Accounting" parent="menu_root"/>
+
+    <menuitem id="menu_tour_excursion" parent="acc_menu_sub" name="Transfer Excursions"
+              action="action_tour_management"/>
+    <menuitem id="menu_tour_card" parent="acc_menu_sub" name="Job Card" action="action_job_card"/>
+    <menuitem id="contact_menu" name="Contacts" parent="menu_root"/>
+
+    <menuitem id="conf_menu_sub" name="Configuration" parent="menu_root"/>
+    <menuitem id="contact_menu" name="Contacts" parent="menu_root"/>
+    <menuitem id="acc_inv_menu_sub" name="Tour Invoice" parent="acc_menu_sub"
+              action="account.action_move_out_invoice_type"/>
+
+    <menuitem id="custom_booking_menu_sub" name="Custom Booking Information" parent="Tour_menu_sub"
+              action="tour_booking_information_action"/>
+</odoo>

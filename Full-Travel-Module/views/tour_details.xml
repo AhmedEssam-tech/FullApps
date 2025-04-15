@@ -1,0 +1,55 @@
+<odoo>
+     <record id="tour_details_tree" model="ir.ui.view">
+        <field name="name">Tour Details</field>
+        <field name="model">tour_details</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" class="fw-bold"/>
+                <field name="start_date" />
+                <field name="last_date" />
+                <field name="payment_date" />
+                <field name="total_seat"/>
+                <field name="available_seat" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="tour_details_form" model="ir.ui.view">
+        <field name="name">Tour Details </field>
+        <field name="model">tour_details</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="last_date"/>
+                        </group>
+                        <group>
+                            <field name="payment_date"/>
+                            <field name="total_seat"/>
+                            <field name="available_seat"/>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tour_details_action" model="ir.actions.act_window">
+        <field name="name">Tour Details</field>
+        <field name="res_model">tour_details</field>
+    </record>
+
+
+    <menuitem
+            id="tour_details_menu"
+            name="Tour Details"
+            parent="conf_menu_sub"
+            action="tour_details_action"
+    />
+
+</odoo>

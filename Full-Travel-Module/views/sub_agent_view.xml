@@ -1,0 +1,79 @@
+<odoo>
+     <record id="view_res_partner_form_sub_agent" model="ir.ui.view">
+        <field name="name">res.partner.form.sub.agent</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+               <xpath expr="//field[@name='vat']" position="after">
+                <field name="is_agent"/>
+            </xpath>
+            <xpath expr="//field[@name='is_agent']" position="after">
+                <field name="is_sub_agent"/>
+            </xpath>
+                 <xpath expr="//field[@name='is_sub_agent']" position="after">
+                <field name="is_guide"/>
+
+            </xpath>
+             <xpath expr="//field[@name='is_guide']" position="after">
+                <field name="is_driver"/>
+
+            </xpath>
+              <xpath expr="//field[@name='is_driver']" position="after">
+                <field name="is_other_contact"/>
+
+            </xpath>
+             <xpath expr="//field[@name='is_other_contact']" position="after">
+                <field name="is_tour_consultant"/>
+u
+            </xpath>
+
+               <xpath expr="//field[@name='is_sub_agent']" position="attributes">
+                <attribute name="invisible">is_agent==True or is_guide==True or is_driver==True or is_other_contact==True or is_tour_consultant==True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='is_agent']" position="attributes">
+                <attribute name="invisible">is_sub_agent==True or is_guide==True or is_driver==True or is_other_contact==True or is_tour_consultant==True</attribute>
+            </xpath>
+               <xpath expr="//field[@name='is_guide']" position="attributes">
+                <attribute name="invisible">is_sub_agent==True or is_agent==True  or is_driver==True  or is_other_contact==True or is_tour_consultant==True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='is_driver']" position="attributes">
+                <attribute name="invisible">is_sub_agent==True or is_agent==True  or is_guide==True or is_other_contact==True or is_tour_consultant==True</attribute>
+            </xpath>
+
+
+ <xpath expr="//page[@name='contact_addresses']" position="attributes" >
+                <attribute name="invisible">is_guide==True or is_driver==True or is_other_contact==True or is_tour_consultant==True</attribute>
+
+            </xpath>
+             <xpath expr="//field[@name='is_other_contact']" position="attributes">
+                <attribute name="invisible">is_sub_agent==True or is_agent==True  or is_guide==True or is_driver==True or is_tour_consultant==True</attribute>
+            </xpath>
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Tour Management" invisible="is_sub_agent==False" />
+
+
+            </xpath>
+        </field>
+    </record>
+
+
+
+
+
+     <record id="action_sub_agent_list" model="ir.actions.act_window">
+        <field name="name">Sub Agents</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('is_sub_agent','=',True)]</field>
+
+    </record>
+
+
+
+    <menuitem
+            id="sub_agent_menu"
+            name="Sub Agents"
+            parent="contact_menu"
+            action="action_sub_agent_list"
+    />
+</odoo>

@@ -1,0 +1,26 @@
+<odoo>
+     <record id="meal_tree" model="ir.ui.view">
+        <field name="name">Meal_tree</field>
+        <field name="model">meal</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" class="fw-bold"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="meal_action" model="ir.actions.act_window">
+        <field name="name">Meal</field>
+        <field name="res_model">meal</field>
+    </record>
+
+
+    <menuitem
+            id="meal_menu"
+            name="Meal"
+            parent="conf_menu_sub"
+            action="meal_action"
+    />
+
+</odoo>

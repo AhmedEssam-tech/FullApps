@@ -1,0 +1,57 @@
+<odoo>
+    <record id="view_job_card_tree" model="ir.ui.view">
+        <field name="name">job.card.tree</field>
+        <field name="model">job.card</field>
+        <field name="arch" type="xml">
+            <tree string="Job Card">
+                <field name="jobcard_number"/>
+                <field name="customer_id"/>
+                <field name="jobcard_subject"/>
+                <field name="jobcard_status"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_job_card_form" model="ir.ui.view">
+        <field name="name">job.card.form</field>
+        <field name="model">job.card</field>
+        <field name="arch" type="xml">
+            <form string="Job Card">
+                <sheet>
+                    <group>
+                        <field name="customer_id"/>
+                        <field name="customer_email" readonly="1"/>
+                        <field name="customer_phone" readonly="1"/>
+                        <field name="assign_to"/>
+                    </group>
+                    <group>
+                        <field name="jobcard_number" readonly="1"/>
+                        <field name="jobcard_subject"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="currency_id"/>
+                        <field name="jobcard_status"/>
+                    </group>
+                    <notebook>
+                        <page string="Technician Details">
+                            <field name="technician_name"/>
+                            <field name="technician_date"/>
+                        </page>
+                        <page string="Customer Representative">
+                            <field name="customer_representative_name"/>
+                            <field name="customer_representative_date"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_job_card" model="ir.actions.act_window">
+        <field name="name">Job Card</field>
+        <field name="res_model">job.card</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

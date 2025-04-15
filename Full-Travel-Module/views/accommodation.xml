@@ -1,0 +1,59 @@
+<odoo>
+     <record id="accommodation_tree" model="ir.ui.view">
+        <field name="name">accommodation</field>
+        <field name="model">accommodation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" class="fw-bold"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="accommodation_form" model="ir.ui.view">
+        <field name="name">Accommodation Information</field>
+        <field name="model">accommodation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                        </group>
+                        <group>
+                            <field name="room_type"/>
+                            <field name="email"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Information">
+                            <field name="accommodation_info_ids">
+                                <tree editable="bottom">
+                                    <field name="room_type"/>
+                                    <field name="cost_price"/>
+                                    <field name="sale_price"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="accommodation_action" model="ir.actions.act_window">
+        <field name="name">Accommodation Information</field>
+        <field name="res_model">accommodation</field>
+    </record>
+
+
+    <menuitem
+            id="accommodation_information_menu"
+            name="accommodation Information"
+            parent="conf_menu_sub"
+            action="accommodation_action"
+    />
+
+</odoo>

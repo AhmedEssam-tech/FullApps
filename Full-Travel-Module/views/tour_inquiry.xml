@@ -1,0 +1,90 @@
+<odoo>
+     <record id="tour_inquiry_tree" model="ir.ui.view">
+        <field name="name">Tour Inquiry tree</field>
+        <field name="model">tour_inquiry</field>
+        <field name="arch" type="xml">
+            <tree class="o_goal_list">
+                <field name="name" class="fw-bold"/>
+                <field name="start_date" />
+                <field name="end_date" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="tour_inquiry_form" model="ir.ui.view">
+        <field name="name">tour_inquiry_form</field>
+        <field name="model">tour_inquiry</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="contact"/>
+                            <field name="email"/>
+                            <field name="mobile"/>
+                            <field name="tour_inquiry_date"/>
+                        </group>
+                        <group>
+                            <div class="o_address_format">
+                                <label for="street" string="Address"/>
+                                <field name="street" placeholder="Street..." class="o_address_street" />
+                                <field name="street2" placeholder="Street 2..." class="o_address_street" />
+                                <field name="city" placeholder="City" class="o_address_city" />
+                                <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}"  context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip" />
+                                <div name="partner_address_country" class="d-flex justify-content-between">
+                                    <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" />
+                                </div>
+                            </div>
+                            <group>
+                                <field name="number_of_adult"/>
+                                <field name="number_of_child"/>
+                                <field name="reference"/>
+                            </group>
+                        </group>
+                    </group>
+                    <group string="Tour Information ">
+                        <group>
+                            <field name="start_date"/>
+                            <field name="budget_min"/>
+                            <field name="budget_max"/>
+                            <field name="notes"/>
+                        </group>
+                        <group>
+                            <field name="end_date"/>
+                            <field name="confirmed_budget"/>
+                        </group>
+                    </group>
+                        <notebook>
+                            <page string="Destination Preferences">
+                                <field name="destination_ids">
+                                    <tree editable="bottom">
+                                        <field name="destination"/>
+                                        <field name="country"/>
+                                        <field name="location" widget="many2many_tags"/>
+                                        <field name="no_of_days"/>
+                                        <field name="no_of_nights"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tour_inquiry_action" model="ir.actions.act_window">
+        <field name="name">tour_inquiry</field>
+        <field name="res_model">tour_inquiry</field>
+    </record>
+
+
+    <menuitem
+            id="tour_inquiry_menu"
+            name="Tour Inquiry"
+            parent="Tour_menu_sub"
+            action="tour_inquiry_action"
+    />
+
+</odoo>

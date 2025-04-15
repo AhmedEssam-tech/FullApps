@@ -1,0 +1,53 @@
+<odoo>
+     <record id="travel_information_tree" model="ir.ui.view">
+        <field name="name">travel information tree</field>
+        <field name="model">travel_information</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="from_tour"/>
+                <field name="to_tour"/>
+                <field name="transport_type"/>
+                <field name="travel_class"/>
+                <field name="distance"/>
+                <field name="duration_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="travel_information_form" model="ir.ui.view">
+        <field name="name">travel information form</field>
+        <field name="model">travel_information</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="from_tour"/>
+                            <field name="to_tour"/>
+                            <field name="transport_type"/>
+                            <field name="travel_class"/>
+                        </group>
+                        <group>
+                            <field name="distance"/>
+                            <field name="duration_time"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="travel_information_action" model="ir.actions.act_window">
+        <field name="name">Travel Information</field>
+        <field name="res_model">travel_information</field>
+    </record>
+
+
+    <menuitem
+            id="travel_information_menu"
+            name="Travel Information"
+            parent="conf_menu_sub"
+            action="travel_information_action"
+    />
+
+</odoo>

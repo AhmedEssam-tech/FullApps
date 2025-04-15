@@ -1,0 +1,26 @@
+<odoo>
+     <record id="flight_name_tree" model="ir.ui.view">
+        <field name="name">flight_name_tree</field>
+        <field name="model">flight_name</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" class="fw-bold"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="flight_name_action" model="ir.actions.act_window">
+        <field name="name">Flight Name</field>
+        <field name="res_model">flight_name</field>
+    </record>
+
+
+    <menuitem
+            id="flight_name_menu"
+            name="Flight Name"
+            parent="conf_menu_sub"
+            action="flight_name_action"
+    />
+
+</odoo>

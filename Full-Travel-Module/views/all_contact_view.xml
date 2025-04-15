@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="action_all_contacts" model="ir.actions.act_window">
+    <field name="name">All Contacts</field>
+    <field name="res_model">res.partner</field>
+    <field name="view_mode">kanban,tree,form</field>
+    <field name="domain">[]</field>
+</record>
+
+<menuitem id="menu_all_contacts"
+          name="All Contacts"
+          parent="contact_menu"
+          action="action_all_contacts" />
+</odoo>

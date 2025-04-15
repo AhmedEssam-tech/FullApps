@@ -1,0 +1,29 @@
+<odoo>
+     <record id="view_res_partner_form_consultant" model="ir.ui.view">
+        <field name="name">res.partner.form.tour.consultant</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+  <xpath expr="//field[@name='is_tour_consultant']" position="attributes">
+                <attribute name="invisible">is_sub_agent==True or is_agent==True  or is_guide==True or is_driver==True or is_other_contact==True</attribute>
+            </xpath>
+
+
+
+             <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Tour Management" invisible="is_tour_consultant==False"/>
+             </xpath>
+        </field>
+    </record>
+    <record id="action_consultant_list" model="ir.actions.act_window">
+        <field name="name">Tour Consultants</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('is_tour_consultant','=',True)]</field>
+
+    </record>
+
+
+    <menuitem id="tour_consultant_menu" name="Tour Consultants" parent="contact_menu" action="action_consultant_list"/>
+</odoo>
