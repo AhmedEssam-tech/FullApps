@@ -1,6 +1,6 @@
 
 {
-    'name': "Real Estate | Property Management System",
+    'name': "Real Estate DX4 | Property Management System",
     'version': '17.0.1.0',  # Update version to reflect Odoo 17
     'sequence': 1,
     'summary': """
