@@ -9,8 +9,8 @@
     'description': """
             Real Estate Management System
         """,
-    'author': 'GeekXDigital',
-    'maintainer': 'GeekXDigital',
+    'author': 'DX4',
+    'maintainer': 'DX4',
     'price': '50.0',
     'currency': 'USD',
     'website': 'https://www.geekxdigital.com/',
