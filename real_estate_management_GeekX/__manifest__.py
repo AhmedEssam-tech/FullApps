@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-################################################################################
-#
-#    Kolpolok Ltd. (https://www.kolpolok.com)
-#    Author: Kaushik Ahmed Apu, Aqil Mahmud, Zarin Tasnim (<https://www.kolpolok.com>)
-#
-################################################################################
+
 {
     'name': "Real Estate | Property Management System",
     'version': '17.0.1.0',  # Update version to reflect Odoo 17
@@ -15,11 +9,11 @@
     'description': """
             Real Estate Management System
         """,
-    'author': 'Kolpolok',
-    'maintainer': 'Kolpolok',
-    'price': '0.0',
+    'author': 'GeekXDigital',
+    'maintainer': 'GeekXDigital',
+    'price': '50.0',
     'currency': 'USD',
-    'website': 'https://www.kolpoloktechnologies.com/',
+    'website': 'https://www.geekxdigital.com/',
     'license': 'LGPL-3',
     'depends': [
         'base',
